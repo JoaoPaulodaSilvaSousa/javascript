@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Você é Brasileiro?</title>
+    <style>
+        span, body {
+            font: normal 15pt Arial;
+        }
+        span > u {
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <span>Qual o seu país?: *<u>(Começe com a primeira letra maiúscula)</u>*</span><input type="text" name="spais" id="spais" autocomplete="off">
+    <input type="button" value="Enviar" onclick="seupais()">
+    <div id="res"></div>
+    <script>
+        function seupais () {
+            var vivendo = window.document.querySelector('#spais')
+            var pais = vivendo.value
+            var res = window.document.querySelector('#res')
+
+            res.innerHTML = `Você mora no (a): <strong>${pais}!</strong>`
+            if (pais != 'Brasil') {
+                res.innerHTML += `<p>Você é <strong>Estrangeiro (a)!</strong></p>`
+            }
+            else {
+                res.innerHTML += `<p>Você é <strong>Brasileiro (a)!</strong></p>`
+            }
+        }
+    </script>
+</body>
+</html>
