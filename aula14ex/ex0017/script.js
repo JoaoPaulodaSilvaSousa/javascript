@@ -7,7 +7,7 @@ function tabuada() {
     } else {
         let n = Number(num.value)
         let c = 1
-            tabu.innerHTML = ''
+        tabu.innerHTML = ''
         for (c = 1; c <= 10; c++) {
             let item = document.createElement('option'); // Cria um elemento <option>
             item.text = `${n} x ${c} = ${n * c}`; // Define o texto da opção
