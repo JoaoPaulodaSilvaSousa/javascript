@@ -2,5 +2,10 @@ function seunome() {
     let nome = document.getElementById('nm').value
     let resultado = document.getElementById('resul')
 
-    document.getElementById("resul").innerHTML = "Olá, <strong>" + nome + "</strong>!";
+    if (nome.trim() !== "") {
+    resultado.innerHTML = "Oi, " + nome + '!';
+} else {
+    resultado.innerHTML = "Por favor, digite seu nome.";
+}
+
 }
