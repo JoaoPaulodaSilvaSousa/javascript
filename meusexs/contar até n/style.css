@@ -7,12 +7,18 @@
 
 body {
     background-color: blue;
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center;     /* Centraliza verticalmente */
+    height: 100vh;           /* Garante que o body ocupe 100% da altura da tela */
 }
 
 .container {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 2px solid black;
+    height: 50%;
+    width: 50%;
+    border-radius: 10px;
+    box-shadow: 6px 2px 6px 0px lightgray;
+    text-align: center;
+    background-color: white; /* Opcional: para destacar o container */
+    padding: 20px;            /* Espaçamento interno opcional */
 }
