@@ -30,19 +30,61 @@ function calc() {
 
 }
 
+document.addEventListener("DOMContentLoaded", () => { //A sintaxe é: objeto.addEventListener('nomeDoEvento', funçãoQueVaiExecutar); Esse evento é disparado quando o navegador terminou de carregar todo o HTML da página e construiu o DOM (Document Object Model). É uma arrow function — uma forma curta e moderna de escrever uma função anônima. Essa função é o callback que será executado assim que o evento "DOMContentLoaded" acontecer.
+    // Função que será chamada ao apertar Enter
+    const teclaEnter = (event) => {
+        if (event.key === 'Enter') {
+            calc();
+        }
+    };
+
+    // Pega os inputs e adiciona o listener para detectar Enter
+    const inputs = ['tabuada1', 'tabuada2'];
+    inputs.forEach(id => {
+        const input = document.getElementById(id);
+        if (input) {
+            input.addEventListener('keydown', teclaEnter);
+        }
+    });
+});
+
 function mais() {
       let opc = document.getElementById('mais');
       let res2 = document.getElementById('opcres')
+      let limpartabu = document.getElementById('criador');
 
-      res2.innerHTML += '<p>Deseja que a sua tabauda vá até qual?</p> <input type="number" name="tabuada2" id="contagem"> <input type="button" value="Calcular" onclick="calctabu()">';
+      if (res2.innerHTML.trim() === "") {
+        // Mostra os elementos adicionais
+        res2.innerHTML = `
+            <p>Deseja que a sua tabuada vá até qual?</p>
+            <input type="number" name="tabuada2" id="contagem">
+            <input type="button" value="Calcular" onclick="calctabu()">
+        `;
+        opc.value = "x"; // muda o texto do botão para "-"
+
+        setTimeout(() => { // setTimeout é uma função do JavaScript usada para adiar a execução de um bloco de código. Para esperar a criação do input antes de tentar acessá-lo com getElementById. 0 no fim da função é o tempo de execução.
+            const campo = document.getElementById('contagem');
+            campo.addEventListener('keydown', function(event) { //element.addEventListener(tipoEvento, funçãoCallback); É uma função anônima (sem nome) que é passada como argumento para outro método — neste caso, para o método addEventListener. Função: é um bloco de código que pode ser executado. Anônima: não tem nome, é declarada “na hora” e usada imediatamente. Parâmetro event: representa o objeto que contém informações sobre o evento que aconteceu.
+                if (event.key === 'Enter') {
+                    calctabu();
+                }
+            });
+        }, 0);
+        
+    } else {
+        // Oculta os elementos
+        res2.innerHTML = "";
+        limpartabu.innerHTML = ""; // limpa o resultado personalizado também
+        opc.value = "+"; // volta o botão para "+"
     }
+}
 
     function calctabu() {
     let contador = Number(document.getElementById('contagem').value);
     let res3 = document.getElementById('criador');
     let gerador = Number(document.getElementById('tabuada1').value);
 
-    if (!isNaN(gerador) && !isNaN(contador) && contador > 0) {
+    if ( gerador && contador && contador > 0) {
         let resultado = `<h3>Tabuada personalizada de ${gerador} até ${contador}</h3><ul>`;
         for (let i = 1; i <= contador; i++) {
             resultado += `<li>${gerador} x ${i} = ${gerador * i}</li>`;
