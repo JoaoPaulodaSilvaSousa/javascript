@@ -14,15 +14,15 @@ function calc() {
 
         res.innerHTML = `Resultado: ${num1 * num2}`
 
-        let resultadotabuada = `<h3>Tabuada do ${num1}: </h3>`
+        let resultadotabuada = `<h3>Tabuada do ${num1} até o 10: </h3>`
         
         resultadotabuada += '<ul>' //O operador += significa: "adicione essa parte à string que já existe". Resumo rápido:x += y é igual a x = x + y. Para strings, junta textos .Para números, soma valores
         for ( let i = 1; i <= 10; i++) {
             resultadotabuada += `<li>${num1} x ${i} = ${num1 * i}</li>`
         }
-        resultadotabuada += "</ul>"
+        resultadotabuada += `</u> <input class="limpar" type="button" value="Limpar" onclick="limpe()">`
 
-        res.innerHTML = `<p>Resultado da multiplicação: ${num1} x ${num2} = ${multiplicacao}</p>` + resultadotabuada
+        res.innerHTML = `<p>Resultado da multiplicação: ${num1} x ${num2} = ${multiplicacao}</p> ${resultadotabuada}`
 
     } else {
         res.innerHTML = "Por favor, insira dois números válidos."
@@ -58,9 +58,9 @@ function mais() {
         res2.innerHTML = `
             <p>Deseja que a sua tabuada vá até qual?</p>
             <input type="number" name="tabuada2" id="contagem">
-            <input type="button" value="Calcular" onclick="calctabu()">
+            <input type="button" value="Calcular" onclick="calctabu()"> <br>
         `;
-        opc.value = "x"; // muda o texto do botão para "-"
+        opc.value = "Menos opções!"; // muda o texto do botão para "x"
 
         setTimeout(() => { // setTimeout é uma função do JavaScript usada para adiar a execução de um bloco de código. Para esperar a criação do input antes de tentar acessá-lo com getElementById. 0 no fim da função é o tempo de execução.
             const campo = document.getElementById('contagem');
@@ -75,7 +75,7 @@ function mais() {
         // Oculta os elementos
         res2.innerHTML = "";
         limpartabu.innerHTML = ""; // limpa o resultado personalizado também
-        opc.value = "+"; // volta o botão para "+"
+        opc.value = "Mais opções!"; // volta o botão para "+"
     }
 }
 
@@ -85,13 +85,21 @@ function mais() {
     let gerador = Number(document.getElementById('tabuada1').value);
 
     if ( gerador && contador && contador > 0) {
-        let resultado = `<h3>Tabuada personalizada de ${gerador} até ${contador}</h3><ul>`;
+        let resultado = `<h3>Tabuada personalizada de ${gerador} até ${contador}:</h3><ul>`;
         for (let i = 1; i <= contador; i++) {
             resultado += `<li>${gerador} x ${i} = ${gerador * i}</li>`;
         }
-        resultado += "</ul>";
+        resultado += `</ul> <input class="limpar" type="button" value="Limpar" onclick="limpe()">`;
         res3.innerHTML = resultado;
     } else {
         res3.innerHTML = "<p>Insira um número válido para a tabuada.</p>";
     }
+}
+
+function limpe() {
+    document.getElementById('resultado').innerHTML = "";
+    document.getElementById('opcres').innerHTML = "";
+
+
+
 }

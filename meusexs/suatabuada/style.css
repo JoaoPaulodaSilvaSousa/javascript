@@ -1,0 +1,65 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body, html {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: blue;
+    
+}
+
+.container {
+    background: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+h1 {
+    padding-bottom: 20px;
+}
+
+p {
+    padding: 10px 0px;
+}
+
+h3 {
+    padding: 10px 0px;
+}
+
+li {
+    list-style: none;
+}
+
+#mais {
+    margin-top: 10px;
+}
+
+input[type="button"] {
+    cursor: pointer;
+    border: none;
+    background-color: lightblue;
+    border-radius: 5px;
+    padding: 5px 8px;
+    font-weight: bolder;
+}
+
+input[type="number"] {
+    border-radius: 5px;
+    padding: 3px 5px;
+}
+
+.limpar {
+    margin-left: 400px;
+    transition: background-color 0.5s ease;
+}
+
+.limpar:hover {
+    background-color: red;
+}
