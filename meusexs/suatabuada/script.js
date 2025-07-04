@@ -89,7 +89,7 @@ function mais() {
         for (let i = 1; i <= contador; i++) {
             resultado += `<li>${gerador} x ${i} = ${gerador * i}</li>`;
         }
-        resultado += `</ul> <input class="limpar" type="button" value="Limpar" onclick="limpe()">`;
+        resultado += `</ul> <input class="limpar" type="button" value="Limpar" onclick="limpe2()">`;
         res3.innerHTML = resultado;
     } else {
         res3.innerHTML = "<p>Insira um número válido para a tabuada.</p>";
@@ -98,8 +98,15 @@ function mais() {
 
 function limpe() {
     document.getElementById('resultado').innerHTML = "";
-    document.getElementById('opcres').innerHTML = "";
+}
+
+function limpe2() {
+    const lcriador = document.getElementById('criador').innerHTML = "";
+    const lopcres = document.getElementById('opcres').innerHTML = "";
+    const lopc = document.getElementById('mais');
 
 
-
+    if (lcriador === "" && lopcres === "") {
+        lopc.value = "Mais opções!"
+    }
 }
