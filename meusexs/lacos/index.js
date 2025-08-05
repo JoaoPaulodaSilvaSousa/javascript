@@ -20,7 +20,25 @@
 //     console.log(i)
 // }
 
-['a', 'b'].forEach(function(item) {
-   console.log(item);
-}) 
+// ['a', 'b'].forEach(function(item) {
+//    console.log(item);
+// }) 
+
+let ul = document.querySelector('#tabuada');
+let numero = window.prompt('Digite um número para ver a tabuada');
+
+let i = 1;
+while(i<=10) {
+   let resultado = numero * i;
+   console.log(resultado);
+   exibirnoHTML(numero, i, resultado)
+   i++;
+}
+
+function exibirnoHTML(numero, i, resultado) {
+   ul.innerHTML = '';
+   let li = document.createElement('li');
+   li.innerText = `${numero} * ${i} = ${resultado}`;
+   ul.appendChild(li);
+}
  
