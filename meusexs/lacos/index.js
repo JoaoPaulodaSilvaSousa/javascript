@@ -27,18 +27,44 @@
 let ul = document.querySelector('#tabuada');
 let numero = window.prompt('Digite um número para ver a tabuada');
 
-let i = 1;
-while(i<=10) {
-   let resultado = numero * i;
-   console.log(resultado);
-   exibirnoHTML(numero, i, resultado)
-   i++;
+// let i = 1;
+// while(i<=10) {
+//    let resultado = numero * i;
+//    console.log(resultado);
+//    exibirnoHTML(numero, i, resultado);
+//    i++;
+// }
+
+// let i = 1;
+//  do {
+//    let resultado = numero * i;
+//    console.log(resultado);
+//    exibirnoHTML(numero, i, resultado);
+//    i++;
+// } while(i<=10);
+
+// for (let i = 1; i <= 10; i++) {
+//    let resultado = numero * i;
+//    console.log(resultado);
+//    exibirnoHTML(numero, i, resultado);
+//    i++;
+// }
+
+
+let numerosTabuadas = [];
+for(let i=1; i<= 10; i++) {
+   numerosTabuadas.push(i);
 }
 
+numerosTabuadas.forEach(function(n) {
+   let resultado = numero * n;
+   console.log(resultado);
+   exibirnoHTML(numero, n, resultado);
+})
+
 function exibirnoHTML(numero, i, resultado) {
-   ul.innerHTML = '';
    let li = document.createElement('li');
    li.innerText = `${numero} * ${i} = ${resultado}`;
    ul.appendChild(li);
 }
- 
+
